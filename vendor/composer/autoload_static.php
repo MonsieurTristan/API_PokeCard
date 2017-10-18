@@ -40,17 +40,11 @@ class ComposerStaticInit16bd959d1e788c66b6149aecac3a2c50
         ),
         'A' => 
         array (
-            'App\\Users\\Service\\' => 18,
-            'App\\Users\\Repository\\' => 21,
-            'App\\Users\\Entity\\' => 17,
-            'App\\Users\\Controller\\' => 21,
-            'App\\Users\\' => 10,
+            'App\\User\\Repository\\' => 20,
+            'App\\User\\Entity\\' => 16,
+            'App\\User\\Controller\\' => 20,
+            'App\\User\\' => 9,
             'App\\Tests\\' => 10,
-            'App\\Computer\\Service\\' => 21,
-            'App\\Computer\\Repository\\' => 24,
-            'App\\Computer\\Entity\\' => 20,
-            'App\\Computer\\Controller\\' => 24,
-            'App\\Computer\\' => 13,
         ),
     );
 
@@ -115,49 +109,25 @@ class ComposerStaticInit16bd959d1e788c66b6149aecac3a2c50
         array (
             0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
         ),
-        'App\\Users\\Service\\' => 
+        'App\\User\\Repository\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/Users/Service',
+            0 => __DIR__ . '/../..' . '/src/User/Repository',
         ),
-        'App\\Users\\Repository\\' => 
+        'App\\User\\Entity\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/Users/Repository',
+            0 => __DIR__ . '/../..' . '/src/User/Entity',
         ),
-        'App\\Users\\Entity\\' => 
+        'App\\User\\Controller\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/Users/Entity',
+            0 => __DIR__ . '/../..' . '/src/User/Controller',
         ),
-        'App\\Users\\Controller\\' => 
+        'App\\User\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/Users/Controller',
-        ),
-        'App\\Users\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/Users',
+            0 => __DIR__ . '/../..' . '/src/User',
         ),
         'App\\Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/tests',
-        ),
-        'App\\Computer\\Service\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/Computer/Service',
-        ),
-        'App\\Computer\\Repository\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/Computer/Repository',
-        ),
-        'App\\Computer\\Entity\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/Computer/Entity',
-        ),
-        'App\\Computer\\Controller\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/Computer/Controller',
-        ),
-        'App\\Computer\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/Computer',
         ),
     );
 

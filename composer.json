@@ -7,13 +7,17 @@
     },
     "scripts": {
       "run": [
-        "echo 'Started web server on http://localhost:88'",
+        "echo 'Started web server on http://localhost:80'",
         "php -S 0.0.0.0:8000 -t web web/index.php"
       ]
     },
     "autoload": {
        "psr-4": {
-         "App\\Tests\\": "tests/"
+         "App\\Tests\\": "tests/",
+         "App\\User\\": "src/User/",
+         "App\\User\\Controller\\": "src/User/Controller/",
+         "App\\User\\Repository\\": "src/User/Repository/",
+         "App\\User\\Entity\\": "src/User/Entity/"
        }
    }
 }

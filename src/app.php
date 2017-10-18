@@ -13,3 +13,6 @@ $app->register(new TwigServiceProvider(), array(
 ));
 
 //Ajout des repository
+$app['repository.user'] = function ($app) {
+    return new App\User\Repository\UserRepository($app['db']);
+};
