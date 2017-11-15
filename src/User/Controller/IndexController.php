@@ -11,9 +11,14 @@ class IndexController
     public function testAction(Request $request)
     {
 
-        $data = array('id'=>1, 'name' => "pikachu", 'hp' => 50, 'damage' => 3);
-        $content = json_encode($data);
-        return new Response($content, 200, ['Content-type'=>'application/json']);
+        $url="https://pokeapi.co/api/v2/pokedex/1/";
+        $data = file_get_contents($url);
+        $data = json_decode ($data ,true);
+        $json = $data['pokemon_entries'];
+        $json = $data['pokemon_entries'][0];
+        $json = json_encode ($json);
+
+        return new Response($json, 200, ['Content-type'=>'application/json']);
     }
 
 }
