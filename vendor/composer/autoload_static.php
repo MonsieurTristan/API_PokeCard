@@ -44,11 +44,11 @@ class ComposerStaticInit16bd959d1e788c66b6149aecac3a2c50
             'App\\User\\Entity\\' => 16,
             'App\\User\\Controller\\' => 20,
             'App\\User\\' => 9,
+            'App\\UserPokemon\\Repository\\' => 27,
+            'App\\UserPokemon\\Entity\\' => 23,
+            'App\\UserPokemon\\Controller\\' => 27,
+            'App\\UserPokemon\\' => 16,
             'App\\Tests\\' => 10,
-            'App\\Pokemon\\Repository\\' => 23,
-            'App\\Pokemon\\Entity\\' => 19,
-            'App\\Pokemon\\Controller\\' => 23,
-            'App\\Pokemon\\' => 12,
             'App\\Exchange\\Repository\\' => 24,
             'App\\Exchange\\Entity\\' => 20,
             'App\\Exchange\\Controller\\' => 24,
@@ -133,25 +133,25 @@ class ComposerStaticInit16bd959d1e788c66b6149aecac3a2c50
         array (
             0 => __DIR__ . '/../..' . '/src/User',
         ),
+        'App\\UserPokemon\\Repository\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/UserPokemon/Repository',
+        ),
+        'App\\UserPokemon\\Entity\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/UserPokemon/Entity',
+        ),
+        'App\\UserPokemon\\Controller\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/UserPokemon/Controller',
+        ),
+        'App\\UserPokemon\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/UserPokemon',
+        ),
         'App\\Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/tests',
-        ),
-        'App\\Pokemon\\Repository\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/Pokemon/Repository',
-        ),
-        'App\\Pokemon\\Entity\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/Pokemon/Entity',
-        ),
-        'App\\Pokemon\\Controller\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/Pokemon/Controller',
-        ),
-        'App\\Pokemon\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/src/Pokemon',
         ),
         'App\\Exchange\\Repository\\' => 
         array (
