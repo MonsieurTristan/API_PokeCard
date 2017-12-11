@@ -16,25 +16,34 @@ class IndexController
         $data = json_decode ($data ,true);
         $pokemons = $data['pokemon_entries'];
 
-        $pokemonfr=array();
 
-        foreach ($pokemons as $pokemon) {
-            $urlpokemon = $pokemon['pokemon_species']['url'];
-            $datapokemons = file_get_contents($urlpokemon);
-            $datapokemons = json_decode ($datapokemons ,true);
-            $datapokemons = $datapokemons['names'];
-
-            foreach($datapokemons as $datapokemon){
-              if($datapokemon['language']['name']='fr'){
-                array_push($pokemonfr,$datapokemon['name']);
-              }
-            }
-        }
-        $json = array('name' => $pokemonfr );
-        $json = json_encode ($json);
+        $json = json_encode ($pokemons);
 
         return new Response($json, 200, ['Content-type'=>'application/json']);
     }
+
+    public function getByIdAction(Request $request)
+    {
+        $url="https://pokeapi.co/api/v2/pokedex/1/";
+        $data = file_get_contents($url);
+        $data = json_decode ($data ,true);
+        $pokemons = $data['pokemon_entries'];
+        $parameters = $request->attributes->all();
+
+
+        foreach ($pokemons as $pokemon) {
+
+          if($pokemon['entry_number']==$parameters['id']){
+
+            $pokemon = $pokemon['pokemon_species'];
+            $json = json_encode($pokemon['name']);
+            return new Response($json, 200, ['Content-type'=>'application/json']);
+
+          }
+        }
+        $json = json_encode("Erreur");
+        return new Response($json, 200, ['Content-type'=>'application/json']);
+      }
 
 
 
