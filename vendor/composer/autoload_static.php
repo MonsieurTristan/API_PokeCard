@@ -45,6 +45,10 @@ class ComposerStaticInit16bd959d1e788c66b6149aecac3a2c50
             'App\\User\\Controller\\' => 20,
             'App\\User\\' => 9,
             'App\\Tests\\' => 10,
+            'App\\Exchange\\Repository\\' => 24,
+            'App\\Exchange\\Entity\\' => 20,
+            'App\\Exchange\\Controller\\' => 24,
+            'App\\Exchange\\' => 13,
         ),
     );
 
@@ -128,6 +132,22 @@ class ComposerStaticInit16bd959d1e788c66b6149aecac3a2c50
         'App\\Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/tests',
+        ),
+        'App\\Exchange\\Repository\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Exchange/Repository',
+        ),
+        'App\\Exchange\\Entity\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Exchange/Entity',
+        ),
+        'App\\Exchange\\Controller\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Exchange/Controller',
+        ),
+        'App\\Exchange\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Exchange',
         ),
     );
 

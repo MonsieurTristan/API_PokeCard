@@ -26,4 +26,8 @@ return array(
     'App\\User\\Controller\\' => array($baseDir . '/src/User/Controller'),
     'App\\User\\' => array($baseDir . '/src/User'),
     'App\\Tests\\' => array($baseDir . '/tests'),
+    'App\\Exchange\\Repository\\' => array($baseDir . '/src/Exchange/Repository'),
+    'App\\Exchange\\Entity\\' => array($baseDir . '/src/Exchange/Entity'),
+    'App\\Exchange\\Controller\\' => array($baseDir . '/src/Exchange/Controller'),
+    'App\\Exchange\\' => array($baseDir . '/src/Exchange'),
 );

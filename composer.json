@@ -17,7 +17,11 @@
          "App\\User\\": "src/User/",
          "App\\User\\Controller\\": "src/User/Controller/",
          "App\\User\\Repository\\": "src/User/Repository/",
-         "App\\User\\Entity\\": "src/User/Entity/"
+         "App\\User\\Entity\\": "src/User/Entity/",
+         "App\\Exchange\\": "src/Exchange/",
+         "App\\Exchange\\Controller\\": "src/Exchange/Controller/",
+         "App\\Exchange\\Repository\\": "src/Exchange/Repository/",
+         "App\\Exchange\\Entity\\": "src/Exchange/Entity/"
        }
    }
 }

@@ -16,3 +16,7 @@ $app->register(new TwigServiceProvider(), array(
 $app['repository.user'] = function ($app) {
     return new App\User\Repository\UserRepository($app['db']);
 };
+
+$app['repository.exchange'] = function ($app) {
+    return new App\Exchange\Repository\ExchangeRepository($app['db']);
+};

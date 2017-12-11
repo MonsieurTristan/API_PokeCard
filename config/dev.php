@@ -11,8 +11,8 @@ $app['debug'] = true;
 $app['db.options'] = array(
     'driver' => 'pdo_mysql',
     'host' => '127.0.0.1',
-    'port' => '80',
-    'dbname' => 'mvc',
+    'port' => '',
+    'dbname' => 'BDD_Pokecard',
     'user' => 'root',
     'password' => '',
 );
