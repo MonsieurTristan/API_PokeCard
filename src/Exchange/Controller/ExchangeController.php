@@ -8,16 +8,19 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ExchangeController
 {
-    public function getExchangeToFriend(Request $request)
+    public function getExchangeToFriend(Request $request,Application $app)
     {
-
-
-        return new Response($json, 200, ['Content-type'=>'application/json']);
+      $parameters = $request->attributes->all();
+      $json =  $app['repository.exchange']->getExchangeToFriend($parameters);
+      $json = json_encode($json);
+      return new Response($json, 200, ['Content-type'=>'application/json']);
     }
 
-    public function getExchangeFromFriend(Request $request)
+    public function getExchangeFromFriend(Request $request,Application $app)
     {
-
+        $parameters = $request->attributes->all();
+        $json =  $app['repository.exchange']->getExchangeFromFriend($parameters);
+        $json = json_encode($json);
         return new Response($json, 200, ['Content-type'=>'application/json']);
     }
 

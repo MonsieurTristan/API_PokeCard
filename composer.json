@@ -21,7 +21,11 @@
          "App\\Exchange\\": "src/Exchange/",
          "App\\Exchange\\Controller\\": "src/Exchange/Controller/",
          "App\\Exchange\\Repository\\": "src/Exchange/Repository/",
-         "App\\Exchange\\Entity\\": "src/Exchange/Entity/"
+         "App\\Exchange\\Entity\\": "src/Exchange/Entity/",
+         "App\\Pokemon\\": "src/Pokemon/",
+         "App\\Pokemon\\Controller\\": "src/Pokemon/Controller/",
+         "App\\Pokemon\\Repository\\": "src/Pokemon/Repository/",
+         "App\\Pokemon\\Entity\\": "src/Pokemon/Entity/"
        }
    }
 }

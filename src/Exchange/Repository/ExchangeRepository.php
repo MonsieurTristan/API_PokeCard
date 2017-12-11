@@ -32,20 +32,44 @@ class ExchangeRepository
     *
     * @return array A collection of users, keyed by user id.
     */
-   public function getAll()
+   public function getExchangeFromFriend($parameters)
+   {
+     $queryBuilder = $this->db->createQueryBuilder();
+     $queryBuilder
+         ->select('e.*')
+         ->from('Exchange', 'e')
+         ->where('iduser2 = ?')
+         ->setParameter(0, $parameters['iduser2']);
+
+     $statement = $queryBuilder->execute();
+     $exchangesData = $statement->fetchAll();
+     $exchangeEntityList=null;
+     foreach ($exchangesData as $exchangeData) {
+         $exchangeEntityList[$exchangeData['id']] = new Exchange($exchangeData['id'],$exchangeData['iduser1'],$exchangeData['idpokemon1'],$exchangeData['iduser2'],$exchangeData['idpokemon2'],$exchangeData['status']);
+         $exchangeEntityList[$exchangeData['id']] = $exchangeEntityList[$exchangeData['id']]->toArray();
+     }
+
+     return $exchangeEntityList;
+   }
+
+   public function getExchangeToFriend($parameters)
    {
        $queryBuilder = $this->db->createQueryBuilder();
        $queryBuilder
            ->select('e.*')
-           ->from('Exchange', 'e');
+           ->from('Exchange', 'e')
+           ->where('iduser1 = ?')
+           ->setParameter(0, $parameters['iduser1']);
 
        $statement = $queryBuilder->execute();
        $exchangesData = $statement->fetchAll();
+       $exchangeEntityList = null;
        foreach ($exchangesData as $exchangeData) {
-           $exchangeEntityList[$exchangeData['id']] = new Exchange($userData['id'],$userData['iduser1'],$userData['idpokemon1'],$userData['iduser2'],$userData['idpokemon2'],$userData['status']);
+           $exchangeEntityList[$exchangeData['id']] = new Exchange($exchangeData['id'],$exchangeData['iduser1'],$exchangeData['idpokemon1'],$exchangeData['iduser2'],$exchangeData['idpokemon2'],$exchangeData['status']);
+           $exchangeEntityList[$exchangeData['id']] = $exchangeEntityList[$exchangeData['id']]->toArray();
        }
 
-       return $userEntityList;
+       return $exchangeEntityList;
    }
 
    public function insert($parameters)
