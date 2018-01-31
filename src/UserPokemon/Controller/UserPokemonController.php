@@ -8,11 +8,21 @@ use Symfony\Component\HttpFoundation\Response;
 
 class UserPokemonController
 {
-    public function getPokemonByIdUser(Request $request, Application $app){
+    public function getPokemonNameByIdUser(Request $request, Application $app){
       $parameters = $request->attributes->all();
       $idpokemons =  $app['repository.userpokemon']->getAllPokemonByUser($parameters);
       foreach ($idpokemons as $idpokemon) {
         $json[] = $app['repository.userpokemon']->getPokemonById($idpokemon['idpokemon']);
+      }
+      $json = json_encode($json);
+      return new Response($json, 200, ['Content-type'=>'application/json']);
+    }
+
+    public function getPokemonIdByIdUser(Request $request, Application $app){
+      $parameters = $request->attributes->all();
+      $idpokemons =  $app['repository.userpokemon']->getAllPokemonByUser($parameters);
+      foreach ($idpokemons as $idpokemon) {
+        $json[] = $idpokemon['idpokemon'];
       }
       $json = json_encode($json);
       return new Response($json, 200, ['Content-type'=>'application/json']);

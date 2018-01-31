@@ -32,22 +32,6 @@ class UserPokemonRepository
     *
     * @return array A collection of users, keyed by user id.
     */
-   public function getAll()
-   {
-       $queryBuilder = $this->db->createQueryBuilder();
-       $queryBuilder
-           ->select('u.*')
-           ->from('User', 'u');
-
-       $statement = $queryBuilder->execute();
-       $usersData = $statement->fetchAll();
-       foreach ($usersData as $userData) {
-           $userEntityList[$userData['token']] = new User($userData['token']);
-       }
-
-       return $userEntityList;
-   }
-
    public function getAllPokemonByUser($parameters)
    {
      $queryBuilder = $this->db->createQueryBuilder();

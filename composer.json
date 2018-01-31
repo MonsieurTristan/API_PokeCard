@@ -25,7 +25,11 @@
          "App\\UserPokemon\\": "src/UserPokemon/",
          "App\\UserPokemon\\Controller\\": "src/UserPokemon/Controller/",
          "App\\UserPokemon\\Repository\\": "src/UserPokemon/Repository/",
-         "App\\UserPokemon\\Entity\\": "src/UserPokemon/Entity/"
+         "App\\UserPokemon\\Entity\\": "src/UserPokemon/Entity/",
+         "App\\Friend\\": "src/Friend/",
+         "App\\Friend\\Controller\\": "src/Friend/Controller/",
+         "App\\Friend\\Repository\\": "src/Friend/Repository/",
+         "App\\Friend\\Entity\\": "src/Friend/Entity/"
        }
    }
 }
