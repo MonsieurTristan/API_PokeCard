@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Twig\\' => array($vendorDir . '/twig/twig/src'),
+    'Symfony\\Polyfill\\Php70\\' => array($vendorDir . '/symfony/polyfill-php70'),
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),
     'Symfony\\Component\\Routing\\' => array($vendorDir . '/symfony/routing'),
     'Symfony\\Component\\HttpKernel\\' => array($vendorDir . '/symfony/http-kernel'),
@@ -30,6 +31,10 @@ return array(
     'App\\UserPokemon\\Controller\\' => array($baseDir . '/src/UserPokemon/Controller'),
     'App\\UserPokemon\\' => array($baseDir . '/src/UserPokemon'),
     'App\\Tests\\' => array($baseDir . '/tests'),
+    'App\\Friend\\Repository\\' => array($baseDir . '/src/Friend/Repository'),
+    'App\\Friend\\Entity\\' => array($baseDir . '/src/Friend/Entity'),
+    'App\\Friend\\Controller\\' => array($baseDir . '/src/Friend/Controller'),
+    'App\\Friend\\' => array($baseDir . '/src/Friend'),
     'App\\Exchange\\Repository\\' => array($baseDir . '/src/Exchange/Repository'),
     'App\\Exchange\\Entity\\' => array($baseDir . '/src/Exchange/Entity'),
     'App\\Exchange\\Controller\\' => array($baseDir . '/src/Exchange/Controller'),

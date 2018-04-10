@@ -7,7 +7,9 @@ namespace Composer\Autoload;
 class ComposerStaticInit16bd959d1e788c66b6149aecac3a2c50
 {
     public static $files = array (
+        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '023d27dca8066ef29e6739335ea73bad' => __DIR__ . '/..' . '/symfony/polyfill-php70/bootstrap.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -17,6 +19,7 @@ class ComposerStaticInit16bd959d1e788c66b6149aecac3a2c50
         ),
         'S' => 
         array (
+            'Symfony\\Polyfill\\Php70\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Component\\Routing\\' => 26,
             'Symfony\\Component\\HttpKernel\\' => 29,
@@ -49,6 +52,10 @@ class ComposerStaticInit16bd959d1e788c66b6149aecac3a2c50
             'App\\UserPokemon\\Controller\\' => 27,
             'App\\UserPokemon\\' => 16,
             'App\\Tests\\' => 10,
+            'App\\Friend\\Repository\\' => 22,
+            'App\\Friend\\Entity\\' => 18,
+            'App\\Friend\\Controller\\' => 22,
+            'App\\Friend\\' => 11,
             'App\\Exchange\\Repository\\' => 24,
             'App\\Exchange\\Entity\\' => 20,
             'App\\Exchange\\Controller\\' => 24,
@@ -60,6 +67,10 @@ class ComposerStaticInit16bd959d1e788c66b6149aecac3a2c50
         'Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
+        ),
+        'Symfony\\Polyfill\\Php70\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php70',
         ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
@@ -153,6 +164,22 @@ class ComposerStaticInit16bd959d1e788c66b6149aecac3a2c50
         array (
             0 => __DIR__ . '/../..' . '/tests',
         ),
+        'App\\Friend\\Repository\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Friend/Repository',
+        ),
+        'App\\Friend\\Entity\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Friend/Entity',
+        ),
+        'App\\Friend\\Controller\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Friend/Controller',
+        ),
+        'App\\Friend\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/Friend',
+        ),
         'App\\Exchange\\Repository\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/Exchange/Repository',
@@ -203,12 +230,23 @@ class ComposerStaticInit16bd959d1e788c66b6149aecac3a2c50
         ),
     );
 
+    public static $classMap = array (
+        'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
+        'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
+        'DivisionByZeroError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/DivisionByZeroError.php',
+        'Error' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/Error.php',
+        'ParseError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ParseError.php',
+        'SessionUpdateTimestampHandlerInterface' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/SessionUpdateTimestampHandlerInterface.php',
+        'TypeError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/TypeError.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit16bd959d1e788c66b6149aecac3a2c50::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit16bd959d1e788c66b6149aecac3a2c50::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit16bd959d1e788c66b6149aecac3a2c50::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit16bd959d1e788c66b6149aecac3a2c50::$classMap;
 
         }, null, ClassLoader::class);
     }

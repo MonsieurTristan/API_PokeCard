@@ -4,28 +4,43 @@ namespace App\User\Entity;
 
 class User
 {
-    protected $token;
+    protected $id;
+    protected $name;
 
 
-    public function __construct($token)
+    public function __construct($id,$name)
     {
-        $this->token = $token;
+        $this->id = $id;
+        $this->name = $name;
     }
 
-    public function setToken($token)
+    public function setId($id)
     {
-        $this->token = $token;
+        $this->id = $id;
     }
 
-    public function getToken()
+    public function getId()
     {
-        return $this->token;
+        return $this->id;
     }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
 
     public function toArray()
     {
         $array = array();
-        $array['token'] = $this->token;
+        $array['id'] = $this->id;
+        $array['name'] = $this->name;
         return $array;
     }
+
 }

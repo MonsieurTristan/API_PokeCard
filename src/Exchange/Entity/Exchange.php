@@ -7,19 +7,18 @@ class Exchange
     protected $id;
     protected $iduser1;
     protected $idpokemon1;
-    protected $iduser2;
     protected $idpokemon2;
     protected $status;
 
-    public function __construct($id,$iduser1,$idpokemon1,$iduser2,$idpokemon2,$status)
+    public function __construct($id,$iduser1,$idpokemon1,$idpokemon2,$status)
     {
         $this->id = $id;
         $this->iduser1 = $iduser1;
         $this->idpokemon1 = $idpokemon1;
-        $this->iduser2 = $iduser2;
         $this->idpokemon2 = $idpokemon2;
         $this->status = $status;
     }
+
 
     public function setId($id)
     {
@@ -51,15 +50,7 @@ class Exchange
         return $this->idpokemon1;
     }
 
-    public function setIdUser2($iduser2)
-    {
-        $this->iduser2 = $iduser2;
-    }
 
-    public function getIdUser2()
-    {
-        return $this->iduser2;
-    }
 
     public function setIdPokemon2($idpokemon2)
     {
@@ -85,10 +76,9 @@ class Exchange
     public function toArray()
     {
         $array = array();
-        $array['id'] = $this->id;
+        $array['id  '] = $this->id;
         $array['iduser1'] = $this->iduser1;
         $array['idpokemon1'] = $this->idpokemon1;
-        $array['iduser2'] = $this->iduser2;
         $array['idpokemon2'] = $this->idpokemon2;
         $array['status'] = $this->status;
         return $array;

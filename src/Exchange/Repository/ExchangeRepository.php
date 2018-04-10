@@ -32,67 +32,88 @@ class ExchangeRepository
     *
     * @return array A collection of users, keyed by user id.
     */
-   public function getExchangeFromFriend($parameters)
+
+   public function getMyExchanges($parameters)
    {
      $queryBuilder = $this->db->createQueryBuilder();
      $queryBuilder
          ->select('e.*')
-         ->from('Exchange', 'e')
-         ->where('iduser2 = ?')
-         ->setParameter(0, $parameters['iduser2']);
+         ->from('ExchangePaul', 'e')
+         ->where('iduser1 = ?')
+         ->setParameter(0, $parameters['iduser1']);
 
      $statement = $queryBuilder->execute();
      $exchangesData = $statement->fetchAll();
-     $exchangeEntityList=null;
+     $exchangesEntityList=null;
      foreach ($exchangesData as $exchangeData) {
-         $exchangeEntityList[$exchangeData['id']] = new Exchange($exchangeData['id'],$exchangeData['iduser1'],$exchangeData['idpokemon1'],$exchangeData['iduser2'],$exchangeData['idpokemon2'],$exchangeData['status']);
-         $exchangeEntityList[$exchangeData['id']] = $exchangeEntityList[$exchangeData['id']]->toArray();
+         $tmp = new Exchange($exchangeData['id'],$exchangeData['iduser1'],$exchangeData['idpokemon1'],$exchangeData['idpokemon2'],$exchangeData['status']);
+         $exchangesEntityList[] = $tmp->toArray();
      }
 
-     return $exchangeEntityList;
+     return $exchangesEntityList;
    }
 
-   public function getExchangeToFriend($parameters)
+   public function getUsersExchanges($parameters)
    {
-       $queryBuilder = $this->db->createQueryBuilder();
-       $queryBuilder
-           ->select('e.*')
-           ->from('Exchange', 'e')
-           ->where('iduser1 = ?')
-           ->setParameter(0, $parameters['iduser1']);
+     $queryBuilder = $this->db->createQueryBuilder();
+     $queryBuilder
+         ->select('e.*')
+         ->from('ExchangePaul', 'e')
+         ->where('iduser1 != ?')
+         ->setParameter(0, $parameters['iduser1']);
 
-       $statement = $queryBuilder->execute();
-       $exchangesData = $statement->fetchAll();
-       $exchangeEntityList = null;
-       foreach ($exchangesData as $exchangeData) {
-           $exchangeEntityList[$exchangeData['id']] = new Exchange($exchangeData['id'],$exchangeData['iduser1'],$exchangeData['idpokemon1'],$exchangeData['iduser2'],$exchangeData['idpokemon2'],$exchangeData['status']);
-           $exchangeEntityList[$exchangeData['id']] = $exchangeEntityList[$exchangeData['id']]->toArray();
-       }
+     $statement = $queryBuilder->execute();
+     $exchangesData = $statement->fetchAll();
+     $exchangesEntityList=null;
+     foreach ($exchangesData as $exchangeData) {
+         $tmp = new Exchange($exchangeData['id'],$exchangeData['iduser1'],$exchangeData['idpokemon1'],$exchangeData['idpokemon2'],$exchangeData['status']);
+         $exchangesEntityList[] = $tmp->toArray();
+     }
 
-       return $exchangeEntityList;
+     return $exchangesEntityList;
    }
 
    public function insert($parameters)
   {
       $queryBuilder = $this->db->createQueryBuilder();
       $queryBuilder
-        ->insert('Exchange')
+        ->insert('ExchangePaul')
         ->values(
             array(
+              'id'=> 'null',
               'iduser1' => ':iduser1',
               'idpokemon1' => ':idpokemon1',
-              'iduser2' => ':iduser2',
               'idpokemon2' => ':idpokemon2',
               'status' => ':status'
             )
         )
          ->setParameter(':iduser1', $parameters['iduser1'])
          ->setParameter(':idpokemon1', $parameters['idpokemon1'])
-         ->setParameter(':iduser2', $parameters['iduser2'])
          ->setParameter(':idpokemon2', $parameters['idpokemon2'])
          ->setParameter(':status', 'waiting');
       $statement = $queryBuilder->execute();
   }
+
+  public function cancelExchange($parameters)
+ {
+     $queryBuilder = $this->db->createQueryBuilder();
+     $queryBuilder
+       ->delete('ExchangePaul')
+       ->where('id = :id')
+       ->setParameter('id', $parameters['id']);
+     $statement = $queryBuilder->execute();
+ }
+
+ public function updateStatus($id){
+   $queryBuilder = $this->db->createQueryBuilder();
+   $queryBuilder
+     ->update('ExchangePaul','e')
+     ->set('e.status', ':status')
+     ->where('id = :id')
+     ->setParameter(':id', $id)
+     ->setParameter(':status', "done");
+   $statement = $queryBuilder->execute();
+ }
 
 
 }

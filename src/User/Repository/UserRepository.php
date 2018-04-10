@@ -32,20 +32,40 @@ class UserRepository
     *
     * @return array A collection of users, keyed by user id.
     */
-   public function getAll()
+    public function insert($parameters)
    {
        $queryBuilder = $this->db->createQueryBuilder();
        $queryBuilder
-           ->select('u.*')
-           ->from('User', 'u');
-
+         ->insert('UserPaul')
+         ->values(
+             array(
+               'id' => ':id',
+               'name' => ':name'
+             )
+         )
+          ->setParameter(':id', $parameters['id'])
+          ->setParameter(':name', $parameters['name']);
        $statement = $queryBuilder->execute();
-       $usersData = $statement->fetchAll();
-       foreach ($usersData as $userData) {
-           $userEntityList[$userData['token']] = new User($userData['token']);
-       }
+   }
 
-       return $userEntityList;
+   public function getUserById($parameters)
+   {
+     $queryBuilder = $this->db->createQueryBuilder();
+     $queryBuilder
+         ->select('u.*')
+         ->from('UserPaul', 'u')
+         ->where('id = ?')
+         ->setParameter(0, $parameters['id']);
+
+     $statement = $queryBuilder->execute();
+     $usersData = $statement->fetchAll();
+     $userEntityList=null;
+     foreach ($usersData as $userData) {
+         $tmp = new User($userData['id'],$userData['name']);
+         $userEntityList = $tmp->toArray();
+     }
+
+     return $userEntityList;
    }
 
 
